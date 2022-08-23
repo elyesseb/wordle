@@ -1,0 +1,8 @@
+{
+  "name": "wordle",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react",
+  "id": "f65e06ab"
+}
