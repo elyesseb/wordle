@@ -7,20 +7,21 @@ import {
 } from "@ionic/react";
 import { useEffect, useState } from "react";
 import Wordle from "../components/Wordle";
+import data from "../data/data";
 
 const PageHome = () => {
   const [solution, setSolution] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/data`)
-      .then((res) => res.json())
-      .then((data) => {
-        const randomWords = data[Math.floor(Math.random() * data.length)];
-        setSolution(randomWords.toLowerCase());
-        console.log(randomWords.toLowerCase());
-      });
+    const el = data[0].words;
+    const randomWords = el[Math.floor(Math.random() * el.length)];
+    setSolution(randomWords.toLowerCase());
+    console.log(randomWords.toLowerCase());
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setSolution]);
+
+  console.log(data[0].words);
 
   return (
     <IonPage>
@@ -35,7 +36,7 @@ const PageHome = () => {
             <IonTitle size="large">Tab 1</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <div>{solution && <Wordle solution={solution}/>}</div>
+        <div>{solution && <Wordle solution={solution} />}</div>
       </IonContent>
     </IonPage>
   );

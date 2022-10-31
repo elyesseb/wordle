@@ -1,16 +1,13 @@
 import { useEffect, useState } from "react";
 import Wordle from "./Wordle";
+import data from "../data/data";
 
 export default function Keyboard(props: { usedKeys: any; handleClick:any }) {
   const { usedKeys, handleClick } = props;
   const [letters, setLetters] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/letters`)
-      .then((res) => res.json())
-      .then((data) => {
-        setLetters(data);
-      });
+    setLetters(data[0].letters);
   }, []);
 
   return (
