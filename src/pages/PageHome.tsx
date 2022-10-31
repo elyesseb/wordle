@@ -1,4 +1,5 @@
 import {
+  IonButton,
   IonContent,
   IonHeader,
   IonPage,
@@ -28,6 +29,9 @@ const PageHome = () => {
       <IonHeader>
         <IonToolbar color="dark">
           <IonTitle class="ion-text-center">Wordle</IonTitle>
+          <IonButton slot="end" onClick={() => window.location.reload()}>
+            <i className="fa fa-refresh text-light" aria-hidden="true"></i>
+          </IonButton>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
